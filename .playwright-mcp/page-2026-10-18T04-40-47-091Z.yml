@@ -1,0 +1,132 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - link "코드마루 홈" [ref=e4] [cursor=pointer]:
+      - /url: "#"
+      - generic [ref=e5]: </>
+      - generic [ref=e6]: 코드마루
+    - generic [ref=e7]: 파이썬 기초 문제집 / 연습 모드
+    - generic [ref=e11]: Python 준비 중
+  - main [ref=e12]:
+    - complementary "문제 목록" [ref=e13]:
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - paragraph [ref=e16]: TODAY'S PRACTICE
+          - heading "문제 풀기" [level=1] [ref=e17]
+        - generic [ref=e18]: 0 / 10
+      - generic "문제 풀이 진행률" [ref=e19]
+      - generic [ref=e20]:
+        - 'button "문제 01: 합계 구하기" [ref=e21] [cursor=pointer]':
+          - generic [ref=e22]: "01"
+          - generic [ref=e23]:
+            - generic [ref=e24]: 합계 구하기
+            - generic [ref=e25]: 입출력 · 입문
+        - 'button "문제 02: 짝수는 몇 개일까?" [ref=e26] [cursor=pointer]':
+          - generic [ref=e27]: "02"
+          - generic [ref=e28]:
+            - generic [ref=e29]: 짝수는 몇 개일까?
+            - generic [ref=e30]: 조건문 · 입문
+        - 'button "문제 03: 구구단 출력하기" [ref=e31] [cursor=pointer]':
+          - generic [ref=e32]: "03"
+          - generic [ref=e33]:
+            - generic [ref=e34]: 구구단 출력하기
+            - generic [ref=e35]: 반복문 · 입문
+        - 'button "문제 04: 가장 큰 수 찾기" [ref=e36] [cursor=pointer]':
+          - generic [ref=e37]: "04"
+          - generic [ref=e38]:
+            - generic [ref=e39]: 가장 큰 수 찾기
+            - generic [ref=e40]: 리스트 · 입문
+        - 'button "문제 05: 거꾸로 읽어도 같은 단어" [ref=e41] [cursor=pointer]':
+          - generic [ref=e42]: "05"
+          - generic [ref=e43]:
+            - generic [ref=e44]: 거꾸로 읽어도 같은 단어
+            - generic [ref=e45]: 문자열 · 기초
+        - 'button "문제 06: 별 계단 만들기" [ref=e46] [cursor=pointer]':
+          - generic [ref=e47]: "06"
+          - generic [ref=e48]:
+            - generic [ref=e49]: 별 계단 만들기
+            - generic [ref=e50]: 반복문 · 기초
+        - 'button "문제 07: 평균과 등급" [ref=e51] [cursor=pointer]':
+          - generic [ref=e52]: "07"
+          - generic [ref=e53]:
+            - generic [ref=e54]: 평균과 등급
+            - generic [ref=e55]: 계산 · 기초
+        - 'button "문제 08: 모음 세기" [ref=e56] [cursor=pointer]':
+          - generic [ref=e57]: "08"
+          - generic [ref=e58]:
+            - generic [ref=e59]: 모음 세기
+            - generic [ref=e60]: 문자열 · 기초
+        - 'button "문제 09: 동전으로 거스름돈" [ref=e61] [cursor=pointer]':
+          - generic [ref=e62]: "09"
+          - generic [ref=e63]:
+            - generic [ref=e64]: 동전으로 거스름돈
+            - generic [ref=e65]: 그리디 · 도전
+        - 'button "문제 10: 숫자 뒤집기" [ref=e66] [cursor=pointer]':
+          - generic [ref=e67]: "10"
+          - generic [ref=e68]:
+            - generic [ref=e69]: 숫자 뒤집기
+            - generic [ref=e70]: 문자열 · 도전
+      - generic [ref=e71]:
+        - generic [ref=e72]: i
+        - paragraph [ref=e73]: 정답 코드는 브라우저에서 실행돼요. 코드는 이 기기에만 저장됩니다.
+    - generic [ref=e74]:
+      - generic [ref=e75]:
+        - generic [ref=e76]:
+          - generic [ref=e77]: 입출력
+          - generic [ref=e78]: ·
+          - generic [ref=e79]: 입문
+        - generic [ref=e81]:
+          - generic [ref=e82]: 문제 01
+          - heading "합계 구하기" [level=2] [ref=e83]
+        - generic [ref=e84]: 숫자 N개가 주어집니다. 주어진 숫자들의 합을 구해 출력해 보세요.
+        - generic [ref=e85]:
+          - heading "입력" [level=3] [ref=e86]:
+            - generic [ref=e87]: ↓
+            - text: 입력
+          - paragraph [ref=e88]: 첫째 줄에 숫자의 개수 N이 주어집니다. 둘째 줄에 N개의 정수가 공백으로 구분되어 주어집니다.
+        - generic [ref=e89]:
+          - heading "출력" [level=3] [ref=e90]:
+            - generic [ref=e91]: ↑
+            - text: 출력
+          - paragraph [ref=e92]: N개의 정수의 합을 출력합니다.
+        - generic [ref=e93]:
+          - generic [ref=e94]:
+            - heading "예제" [level=3] [ref=e95]
+            - generic [ref=e96]: 직접 실행해 볼 수 있어요
+          - generic [ref=e97]:
+            - generic [ref=e98]:
+              - generic [ref=e99]: 입력
+              - generic [ref=e100]: 5 1 2 3 4 5
+            - generic [ref=e101]:
+              - generic [ref=e102]: 출력
+              - generic [ref=e103]: "15"
+        - generic [ref=e104]:
+          - generic [ref=e105]: ✦
+          - generic [ref=e106]: 둘째 줄은 split()과 map(int, ...)을 이용하면 편하게 숫자로 바꿀 수 있어요.
+      - generic [ref=e107]:
+        - button "← 이전 문제" [disabled] [ref=e108]
+        - generic [ref=e109]: 1 / 10
+        - button "다음 문제 →" [ref=e110] [cursor=pointer]
+    - region "코드 편집기" [ref=e111]:
+      - generic [ref=e112]:
+        - generic [ref=e113]:
+          - generic [ref=e114]: Py
+          - generic [ref=e115]:
+            - strong [ref=e116]: 코드 작성
+            - generic [ref=e117]: main.py
+        - button "초기화" [ref=e118] [cursor=pointer]
+      - generic [ref=e119]:
+        - generic [ref=e120]: ● Python 3
+        - generic [ref=e121]: 들여쓰기 4칸
+      - generic [ref=e122]:
+        - generic [ref=e123]: 1 2 3 4 5
+        - textbox "파이썬 코드 입력" [ref=e124]: "n = int(input()) numbers = list(map(int, input().split())) # 숫자들의 합을 출력해 보세요"
+      - generic [ref=e125]:
+        - generic [ref=e126]: Ctrl + Enter 로 제출
+        - generic [ref=e127]: 자동 저장됨
+      - button "Python 준비 중 ⌘ ↵" [disabled] [ref=e128]:
+        - generic [ref=e129]: ▶
+        - generic [ref=e130]: Python 준비 중
+        - generic [ref=e131]: ⌘ ↵
+  - contentinfo [ref=e132]:
+    - generic [ref=e133]: 작은 한 걸음이 멋진 코드를 만들어요.
+    - generic [ref=e134]: "실행 환경: Pyodide · Python 3"

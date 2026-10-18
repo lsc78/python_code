@@ -1,0 +1,74 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - link "코드마루 홈" [ref=e4] [cursor=pointer]:
+      - /url: "#"
+      - generic [ref=e5]: </>
+      - generic [ref=e6]: 코드마루
+    - generic [ref=e7]:
+      - button "내 기록" [ref=e8] [cursor=pointer]
+      - button "로그인" [disabled] [ref=e9]
+      - generic [ref=e12]: Python 준비 중
+  - main [ref=e13]:
+    - complementary "문제 목록" [ref=e14]:
+      - generic [ref=e15]:
+        - generic [ref=e16]:
+          - paragraph [ref=e17]: TODAY'S PRACTICE
+          - heading "문제 풀기" [level=1] [ref=e18]
+        - generic [ref=e19]: 0 / 10
+      - generic "문제 풀이 진행률" [ref=e20]
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - generic [ref=e24]:
+          - generic [ref=e25]: 입출력
+          - generic [ref=e26]: ·
+          - generic [ref=e27]: 입문
+        - generic [ref=e29]:
+          - generic [ref=e30]: 문제 01
+          - heading "합계 구하기" [level=2] [ref=e31]
+        - generic [ref=e32]:
+          - heading "입력" [level=3] [ref=e33]:
+            - generic [ref=e34]: ↓
+            - text: 입력
+          - paragraph
+        - generic [ref=e35]:
+          - heading "출력" [level=3] [ref=e36]:
+            - generic [ref=e37]: ↑
+            - text: 출력
+          - paragraph
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - heading "예제" [level=3] [ref=e40]
+            - generic [ref=e41]: 직접 실행해 볼 수 있어요
+          - generic [ref=e42]:
+            - generic [ref=e44]: 입력
+            - generic [ref=e47]: 출력
+        - generic [ref=e50]: ✦
+      - generic [ref=e51]:
+        - button "← 이전 문제" [ref=e52] [cursor=pointer]
+        - generic [ref=e53]: 1 / 10
+        - button "다음 문제 →" [ref=e54] [cursor=pointer]
+    - region "코드 편집기" [ref=e55]:
+      - generic [ref=e56]:
+        - generic [ref=e57]:
+          - generic [ref=e58]: Py
+          - generic [ref=e59]:
+            - strong [ref=e60]: 코드 작성
+            - generic [ref=e61]: main.py
+        - generic [ref=e62]:
+          - button "모범 답안 입력" [ref=e63] [cursor=pointer]
+          - button "초기화" [ref=e64] [cursor=pointer]
+      - generic [ref=e65]:
+        - generic [ref=e66]: ● Python 3
+        - generic [ref=e67]: 들여쓰기 4칸
+      - generic [ref=e68]:
+        - generic [ref=e69]: "1"
+        - textbox "파이썬 코드 입력" [ref=e70]
+      - generic [ref=e71]:
+        - generic [ref=e72]: Ctrl + Enter 로 제출
+        - generic [ref=e73]: 자동 저장됨
+      - button "Python 준비 중 Ctrl / ⌘ ↵" [disabled] [ref=e74]:
+        - generic [ref=e75]: ▶
+        - generic [ref=e76]: Python 준비 중
+        - generic [ref=e77]: Ctrl / ⌘ ↵
+  - contentinfo [ref=e78]:
+    - generic [ref=e79]: 작은 한 걸음이 멋진 코드를 만들어요.

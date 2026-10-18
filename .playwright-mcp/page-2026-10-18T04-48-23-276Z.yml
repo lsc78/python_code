@@ -1,0 +1,101 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - link "코드마루 홈" [ref=e4] [cursor=pointer]:
+      - /url: "#"
+      - generic [ref=e5]: </>
+      - generic [ref=e6]: 코드마루
+    - generic [ref=e9]: Python 준비 중
+  - main [ref=e10]:
+    - complementary "문제 목록" [ref=e11]:
+      - generic [ref=e12]:
+        - generic [ref=e13]:
+          - paragraph [ref=e14]: TODAY'S PRACTICE
+          - heading "문제 풀기" [level=1] [ref=e15]
+        - generic [ref=e16]: 9 / 10
+      - generic "문제 풀이 진행률" [ref=e17]
+      - generic [ref=e19]:
+        - 'button "문제 01: 합계 구하기, 해결함" [ref=e20] [cursor=pointer]':
+          - generic [ref=e21]: "01"
+        - 'button "문제 02: 짝수는 몇 개일까?, 해결함" [ref=e22] [cursor=pointer]':
+          - generic [ref=e23]: "02"
+        - 'button "문제 03: 구구단 출력하기, 해결함" [ref=e24] [cursor=pointer]':
+          - generic [ref=e25]: "03"
+        - 'button "문제 04: 가장 큰 수 찾기, 해결함" [ref=e26] [cursor=pointer]':
+          - generic [ref=e27]: "04"
+        - 'button "문제 05: 거꾸로 읽어도 같은 단어, 해결함" [ref=e28] [cursor=pointer]':
+          - generic [ref=e29]: "05"
+        - 'button "문제 06: 별 계단 만들기, 해결함" [ref=e30] [cursor=pointer]':
+          - generic [ref=e31]: "06"
+        - 'button "문제 07: 평균과 등급, 해결함" [ref=e32] [cursor=pointer]':
+          - generic [ref=e33]: "07"
+        - 'button "문제 08: 모음 세기, 해결함" [ref=e34] [cursor=pointer]':
+          - generic [ref=e35]: "08"
+        - 'button "문제 09: 동전으로 거스름돈" [ref=e36] [cursor=pointer]':
+          - generic [ref=e37]: "09"
+        - 'button "문제 10: 숫자 뒤집기, 다음 문제를 먼저 해결하세요" [disabled] [ref=e38]':
+          - generic [ref=e39]: "10"
+    - generic [ref=e40]:
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - generic [ref=e43]: 입출력
+          - generic [ref=e44]: ·
+          - generic [ref=e45]: 입문
+        - generic [ref=e46]:
+          - generic [ref=e47]:
+            - generic [ref=e48]: 문제 01
+            - heading "합계 구하기" [level=2] [ref=e49]
+          - generic [ref=e50]: ✓ 해결
+        - generic [ref=e51]: 숫자 N개가 주어집니다. 주어진 숫자들의 합을 구해 출력해 보세요.
+        - generic [ref=e52]:
+          - heading "입력" [level=3] [ref=e53]:
+            - generic [ref=e54]: ↓
+            - text: 입력
+          - paragraph [ref=e55]: 첫째 줄에 숫자의 개수 N이 주어집니다. 둘째 줄에 N개의 정수가 공백으로 구분되어 주어집니다.
+        - generic [ref=e56]:
+          - heading "출력" [level=3] [ref=e57]:
+            - generic [ref=e58]: ↑
+            - text: 출력
+          - paragraph [ref=e59]: N개의 정수의 합을 출력합니다.
+        - generic [ref=e60]:
+          - generic [ref=e61]:
+            - heading "예제" [level=3] [ref=e62]
+            - generic [ref=e63]: 직접 실행해 볼 수 있어요
+          - generic [ref=e64]:
+            - generic [ref=e65]:
+              - generic [ref=e66]: 입력
+              - generic [ref=e67]: 5 1 2 3 4 5
+            - generic [ref=e68]:
+              - generic [ref=e69]: 출력
+              - generic [ref=e70]: "15"
+        - generic [ref=e71]:
+          - generic [ref=e72]: ✦
+          - generic [ref=e73]: 둘째 줄은 split()과 map(int, ...)을 이용하면 편하게 숫자로 바꿀 수 있어요.
+      - generic [ref=e74]:
+        - button "← 이전 문제" [disabled] [ref=e75]
+        - generic [ref=e76]: 1 / 10
+        - button "다음 문제 →" [ref=e77] [cursor=pointer]
+    - region "코드 편집기" [ref=e78]:
+      - generic [ref=e79]:
+        - generic [ref=e80]:
+          - generic [ref=e81]: Py
+          - generic [ref=e82]:
+            - strong [ref=e83]: 코드 작성
+            - generic [ref=e84]: main.py
+        - generic [ref=e85]:
+          - button "모범 답안 입력" [ref=e86] [cursor=pointer]
+          - button "초기화" [ref=e87] [cursor=pointer]
+      - generic [ref=e88]:
+        - generic [ref=e89]: ● Python 3
+        - generic [ref=e90]: 들여쓰기 4칸
+      - generic [ref=e91]:
+        - generic [ref=e92]: 1 2 3
+        - textbox "파이썬 코드 입력" [ref=e93]: n = int(input()) numbers = list(map(int, input().split())) print(sum(numbers))
+      - generic [ref=e94]:
+        - generic [ref=e95]: Ctrl + Enter 로 제출
+        - generic [ref=e96]: 자동 저장됨
+      - button "Python 준비 중 Ctrl / ⌘ ↵" [disabled] [ref=e97]:
+        - generic [ref=e98]: ▶
+        - generic [ref=e99]: Python 준비 중
+        - generic [ref=e100]: Ctrl / ⌘ ↵
+  - contentinfo [ref=e101]:
+    - generic [ref=e102]: 작은 한 걸음이 멋진 코드를 만들어요.

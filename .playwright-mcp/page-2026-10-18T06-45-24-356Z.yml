@@ -1,0 +1,129 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - link "코드마루 홈" [ref=e4] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=e5]: </>
+        - generic [ref=e6]: 코드마루
+      - generic [ref=e7]:
+        - button "내 기록" [ref=e8] [cursor=pointer]
+        - button "로그인" [ref=e9] [cursor=pointer]
+        - generic [ref=e12]: Python 실행 준비 완료
+    - main [ref=e13]:
+      - complementary "문제 목록" [ref=e14]:
+        - generic [ref=e15]:
+          - generic [ref=e16]:
+            - paragraph [ref=e17]: TODAY'S PRACTICE
+            - heading "문제 풀기" [level=1] [ref=e18]
+          - generic [ref=e19]: 10 / 10
+        - generic "문제 풀이 진행률" [ref=e20]
+        - generic [ref=e22]:
+          - 'button "문제 01: 합계 구하기, 해결함" [ref=e23] [cursor=pointer]':
+            - generic [ref=e24]: "01"
+          - 'button "문제 02: 짝수는 몇 개일까?, 해결함" [ref=e25] [cursor=pointer]':
+            - generic [ref=e26]: "02"
+          - 'button "문제 03: 구구단 출력하기, 해결함" [ref=e27] [cursor=pointer]':
+            - generic [ref=e28]: "03"
+          - 'button "문제 04: 가장 큰 수 찾기, 해결함" [ref=e29] [cursor=pointer]':
+            - generic [ref=e30]: "04"
+          - 'button "문제 05: 거꾸로 읽어도 같은 단어, 해결함" [ref=e31] [cursor=pointer]':
+            - generic [ref=e32]: "05"
+          - 'button "문제 06: 별 계단 만들기, 해결함" [ref=e33] [cursor=pointer]':
+            - generic [ref=e34]: "06"
+          - 'button "문제 07: 평균과 등급, 해결함" [ref=e35] [cursor=pointer]':
+            - generic [ref=e36]: "07"
+          - 'button "문제 08: 모음 세기, 해결함" [ref=e37] [cursor=pointer]':
+            - generic [ref=e38]: "08"
+          - 'button "문제 09: 동전으로 거스름돈, 해결함" [ref=e39] [cursor=pointer]':
+            - generic [ref=e40]: "09"
+          - 'button "문제 10: 숫자 뒤집기, 해결함" [ref=e41] [cursor=pointer]':
+            - generic [ref=e42]: "10"
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - generic [ref=e45]:
+            - generic [ref=e46]: 입출력
+            - generic [ref=e47]: ·
+            - generic [ref=e48]: 입문
+          - generic [ref=e49]:
+            - generic [ref=e50]:
+              - generic [ref=e51]: 문제 01
+              - heading "합계 구하기" [level=2] [ref=e52]
+            - generic [ref=e53]: ✓ 해결
+          - generic [ref=e54]: 숫자 N개가 주어집니다. 주어진 숫자들의 합을 구해 출력해 보세요.
+          - generic [ref=e55]:
+            - button "문제 해석 도우미" [ref=e56] [cursor=pointer]:
+              - generic [ref=e57]: "?"
+              - text: 문제 해석 도우미
+            - generic [ref=e58]: 정답 코드 없이 조건을 정리해요
+          - generic [ref=e59]:
+            - heading "입력" [level=3] [ref=e60]:
+              - generic [ref=e61]: ↓
+              - text: 입력
+            - paragraph [ref=e62]: 첫째 줄에 숫자의 개수 N이 주어집니다. 둘째 줄에 N개의 정수가 공백으로 구분되어 주어집니다.
+          - generic [ref=e63]:
+            - heading "출력" [level=3] [ref=e64]:
+              - generic [ref=e65]: ↑
+              - text: 출력
+            - paragraph [ref=e66]: N개의 정수의 합을 출력합니다.
+          - generic [ref=e67]:
+            - generic [ref=e68]:
+              - heading "예제" [level=3] [ref=e69]
+              - generic [ref=e70]: 직접 실행해 볼 수 있어요
+            - generic [ref=e71]:
+              - generic [ref=e72]:
+                - generic [ref=e73]: 입력
+                - generic [ref=e74]: 5 1 2 3 4 5
+              - generic [ref=e75]:
+                - generic [ref=e76]: 출력
+                - generic [ref=e77]: "15"
+          - generic [ref=e78]:
+            - generic [ref=e79]: ✦
+            - generic [ref=e80]: 둘째 줄은 split()과 map(int, ...)을 이용하면 편하게 숫자로 바꿀 수 있어요.
+        - generic [ref=e81]:
+          - button "← 이전 문제" [disabled] [ref=e82]
+          - generic [ref=e83]: 1 / 10
+          - button "다음 문제 →" [ref=e84] [cursor=pointer]
+      - region "코드 편집기" [ref=e85]:
+        - generic [ref=e86]:
+          - generic [ref=e87]:
+            - generic [ref=e88]: Py
+            - generic [ref=e89]:
+              - strong [ref=e90]: 코드 작성
+              - generic [ref=e91]: main.py
+          - generic [ref=e92]:
+            - button "모범 답안 입력" [ref=e93] [cursor=pointer]
+            - button "초기화" [ref=e94] [cursor=pointer]
+        - generic [ref=e95]:
+          - generic [ref=e96]: ● Python 3
+          - generic [ref=e97]: 들여쓰기 4칸
+        - generic [ref=e98]:
+          - generic [ref=e99]: 1 2 3
+          - textbox "파이썬 코드 입력" [ref=e100]: n = int(input()) numbers = list(map(int, input().split())) print(sum(numbers))
+        - generic [ref=e101]:
+          - generic [ref=e102]: Ctrl + Enter 로 제출
+          - generic [ref=e103]: 자동 저장됨
+        - button "코드 제출하기 Ctrl / ⌘ ↵" [ref=e110] [cursor=pointer]:
+          - generic [ref=e105]: ▶
+          - generic [ref=e106]: 코드 제출하기
+          - generic [ref=e107]: Ctrl / ⌘ ↵
+    - contentinfo [ref=e108]:
+      - generic [ref=e109]: 작은 한 걸음이 멋진 코드를 만들어요.
+  - dialog "학생 로그인" [ref=e111]:
+    - button "닫기" [active] [ref=e112] [cursor=pointer]: ×
+    - generic [ref=e113]: </>
+    - paragraph [ref=e114]: STUDENT ACCOUNT
+    - heading "학생 로그인" [level=2] [ref=e115]
+    - paragraph [ref=e116]: 교사가 명단에 등록하고 발급한 학번과 4자리 PIN으로 로그인해요.
+    - generic [ref=e117]:
+      - button "학생 PIN" [pressed] [ref=e118] [cursor=pointer]
+      - button "교사 ID" [ref=e119] [cursor=pointer]
+      - button "교사 이메일" [ref=e120] [cursor=pointer]
+    - generic [ref=e121]:
+      - generic [ref=e122]: 학번
+      - textbox "학번" [ref=e123]:
+        - /placeholder: 학번을 입력하세요
+      - generic [ref=e124]: 4자리 PIN
+      - textbox "4자리 PIN" [ref=e125]:
+        - /placeholder: 교사가 발급한 PIN
+      - button "학생 로그인" [ref=e126] [cursor=pointer]
+    - status [ref=e127]: PIN을 잊어버리면 교사에게 재발급을 요청하세요.

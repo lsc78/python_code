@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f6f8">
+  <title>코드마루 | 파이썬 연습</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="코드마루 홈">
+        <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+        <span>코드마루</span>
+      </a>
+      <div class="topbar-center"><span class="course-dot"></span> 파이썬 기초 문제집 <span class="topbar-divider">/</span> 연습 모드</div>
+      <div class="header-actions">
+        <button class="history-open-button" id="history-open-button" type="button">내 기록</button>
+        <button class="account-button" id="account-button" type="button" disabled>로그인</button>
+        <div class="runtime-pill" id="runtime-pill"><span class="runtime-indicator"></span><span id="runtime-label">Python 준비 중</span></div>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="problem-rail" aria-label="문제 목록">
+        <div class="rail-heading">
+          <div>
+            <p class="eyebrow">TODAY'S PRACTICE</p>
+            <h1>문제 풀기</h1>
+          </div>
+          <span class="count-badge" id="progress-count">0 / 10</span>
+        </div>
+        <div class="progress-track" aria-label="문제 풀이 진행률"><span id="progress-fill"></span></div>
+        <div class="problem-list" id="problem-list"></div>
+        <div class="rail-note">
+          <span class="note-icon" aria-hidden="true">i</span>
+          <p id="storage-note">로그인하면 풀이 기록이 계정에 저장돼요.</p>
+        </div>
+      </aside>
+
+      <section class="statement-panel" aria-live="polite">
+        <div class="statement-scroll">
+          <div class="problem-kicker"><span id="problem-category">입출력</span><span class="kicker-separator">·</span><span id="problem-level">입문</span></div>
+          <div class="title-row">
+            <div>
+              <div class="problem-number" id="problem-number">문제 01</div>
+              <h2 id="problem-title">합계 구하기</h2>
+            </div>
+            <span class="solved-stamp" id="solved-stamp" hidden>✓ 해결</span>
+          </div>
+          <div class="problem-copy" id="problem-description"></div>
+          <div class="interpret-actions">
+            <button class="interpret-button" id="interpret-button" type="button" aria-expanded="false" aria-controls="interpret-panel">
+              <span class="interpret-mark" aria-hidden="true">?</span> 문제 해석 도우미
+            </button>
+            <span>정답 코드 없이 조건을 정리해요</span>
+          </div>
+          <section class="interpret-panel" id="interpret-panel" aria-label="문제 해석" hidden>
+            <div class="interpret-row"><span>주어진 정보</span><p id="interpret-given"></p></div>
+            <div class="interpret-row"><span>해야 할 일</span><p id="interpret-goal"></p></div>
+            <div class="interpret-row"><span>생각 순서</span><ol id="interpret-steps"></ol></div>
+          </section>
+          <div class="section-block">
+            <h3><span class="section-icon input-icon" aria-hidden="true">↓</span> 입력</h3>
+            <p id="problem-input"></p>
+          </div>
+          <div class="section-block">
+            <h3><span class="section-icon output-icon" aria-hidden="true">↑</span> 출력</h3>
+            <p id="problem-output"></p>
+          </div>
+          <div class="example-card">
+            <div class="example-heading"><h3>예제</h3><span>직접 실행해 볼 수 있어요</span></div>
+            <div class="example-grid">
+              <div><span class="example-label">입력</span><pre id="sample-input"></pre></div>
+              <div><span class="example-label">출력</span><pre id="sample-output"></pre></div>
+            </div>
+          </div>
+          <div class="hint-line"><span aria-hidden="true">✦</span><span id="problem-hint"></span></div>
+        </div>
+        <div class="problem-navigation">
+          <button class="text-button" id="previous-button" type="button">← 이전 문제</button>
+          <span id="position-label">1 / 10</span>
+          <button class="text-button" id="next-button" type="button">다음 문제 →</button>
+        </div>
+      </section>
+
+      <section class="editor-panel" aria-label="코드 편집기">
+        <div class="editor-topline">
+          <div class="editor-heading"><span class="file-icon" aria-hidden="true">Py</span><div><strong>코드 작성</strong><span>main.py</span></div></div>
+          <div class="editor-actions">
+            <button class="answer-button" id="answer-button" type="button" title="현재 코드를 모범 답안으로 바꾸기">모범 답안 입력</button>
+            <button class="reset-button" id="reset-button" type="button" title="현재 문제 코드를 처음 상태로 되돌리기">초기화</button>
+          </div>
+        </div>
+        <div class="editor-toolbar"><span class="editor-language"><span class="python-dot">●</span> Python 3</span><span>들여쓰기 4칸</span></div>
+        <div class="code-area">
+          <div class="line-numbers" id="line-numbers" aria-hidden="true">1</div>
+          <textarea id="code-editor" aria-label="파이썬 코드 입력" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off"></textarea>
+        </div>
+        <div class="editor-footer"><span><kbd>Ctrl</kbd> + <kbd>Enter</kbd> 로 제출</span><span id="save-indicator">자동 저장됨</span></div>
+        <button class="submit-button" id="submit-button" type="button" disabled>
+          <span class="submit-icon" aria-hidden="true">▶</span><span id="submit-label">Python 준비 중</span><span class="submit-shortcut">Ctrl / ⌘ ↵</span>
+        </button>
+        <div class="result-panel" id="result-panel" aria-live="polite" hidden></div>
+      </section>
+    </main>
+    <footer class="page-footer"><span>작은 한 걸음이 멋진 코드를 만들어요.</span><span>실행 환경: Pyodide · Python 3</span></footer>
+  </div>
+  <dialog class="auth-dialog" id="auth-dialog" aria-labelledby="auth-title">
+    <button class="dialog-close" id="auth-close" type="button" aria-label="닫기">×</button>
+    <div class="auth-mark" aria-hidden="true">&lt;/&gt;</div>
+    <p class="eyebrow">STUDENT ACCOUNT</p>
+    <h2 id="auth-title">학생 로그인</h2>
+    <p class="auth-description" id="auth-description">교사가 명단에 등록한 학번과 4자리 PIN으로 로그인해요.</p>
+    <div class="login-mode-switch" id="login-mode-switch">
+      <button class="login-mode-button active" id="student-mode-button" type="button" aria-pressed="true">학생 PIN</button>
+      <button class="login-mode-button" id="teacher-pin-mode-button" type="button" aria-pressed="false">교사 ID</button>
+      <button class="login-mode-button" id="teacher-mode-button" type="button" aria-pressed="false">교사 이메일</button>
+    </div>
+    <form id="student-login-form">
+      <label for="student-login-number">학번</label>
+      <input id="student-login-number" type="text" inputmode="numeric" autocomplete="username" maxlength="30" placeholder="학번을 입력하세요" required>
+      <label for="student-login-pin">4자리 PIN</label>
+      <input id="student-login-pin" type="password" inputmode="numeric" autocomplete="current-password" pattern="[0-9]{4}" maxlength="4" placeholder="교사가 발급한 PIN" required>
+      <button class="auth-submit" id="student-login-submit" type="submit">학생 로그인</button>
+    </form>
+    <form id="teacher-pin-login-form" hidden>
+      <label for="teacher-login-id">교사 아이디</label>
+      <input id="teacher-login-id" type="text" autocomplete="username" maxlength="40" placeholder="발급받은 교사 아이디" required>
+      <label for="teacher-login-password">비밀번호</label>
+      <input id="teacher-login-password" type="password" autocomplete="current-password" maxlength="100" placeholder="발급받은 비밀번호" required>
+      <button class="auth-submit" id="teacher-pin-login-submit" type="submit">교사 로그인</button>
+    </form>
+    <form id="auth-form" hidden>
+      <label for="auth-student-number">교직원 번호 · 처음 가입 시</label>
+      <input id="auth-student-number" type="text" autocomplete="off" maxlength="30" placeholder="기존 계정은 비워둘 수 있어요">
+      <label for="auth-display-name">이름 · 처음 가입 시</label>
+      <input id="auth-display-name" type="text" autocomplete="name" maxlength="60" placeholder="이름을 입력하세요">
+      <label for="auth-email">이메일 주소</label>
+      <input id="auth-email" type="email" autocomplete="email" placeholder="teacher@example.com" required>
+      <button class="auth-submit" id="auth-submit" type="submit">교사 로그인 링크 보내기</button>
+    </form>
+    <p class="auth-message" id="auth-message" role="status" aria-live="polite"></p>
+    <div class="signed-in-panel" id="signed-in-panel" hidden>
+      <p id="signed-in-email"></p>
+      <p class="profile-details" id="profile-details"></p>
+      <form class="profile-completion-form" id="profile-completion-form" hidden>
+        <label for="profile-student-number">학번 또는 교직원 번호</label>
+        <input id="profile-student-number" type="text" maxlength="30" required>
+        <label for="profile-display-name">이름</label>
+        <input id="profile-display-name" type="text" maxlength="60" required>
+        <button class="auth-submit" id="profile-save-button" type="submit">정보 저장</button>
+      </form>
+      <p class="profile-message" id="profile-message" role="status"></p>
+      <button class="history-button" id="history-button" type="button">내 학습 기록 보기</button>
+      <section class="history-panel" id="history-panel" aria-label="내 학습 기록" hidden>
+        <p class="history-summary" id="history-summary" role="status">기록을 불러오고 있어요.</p>
+        <ul class="history-list" id="history-list"></ul>
+      </section>
+      <button class="teacher-button" id="teacher-dashboard-button" type="button" hidden>학생 목록 보기</button>
+      <button class="signout-button" id="signout-button" type="button">로그아웃</button>
+    </div>
+  </dialog>
+  <dialog class="teacher-dialog" id="teacher-dialog" aria-labelledby="teacher-title">
+    <button class="dialog-close" id="teacher-close" type="button" aria-label="닫기">×</button>
+    <p class="eyebrow">TEACHER DASHBOARD</p>
+    <h2 id="teacher-title">학생 목록</h2>
+    <p class="teacher-description">학생 명단을 관리하고 로그인 PIN을 발급할 수 있어요.</p>
+    <div class="roster-import-controls">
+      <input id="roster-file" type="file" accept=".csv,.xlsx,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" aria-label="CSV 또는 Excel 명단 파일 선택">
+      <span class="roster-file-name" id="roster-file-name">파일을 선택해 주세요.</span>
+      <button class="roster-action" id="roster-import-button" type="button" disabled>명단 올리기</button>
+      <button class="roster-template-button" id="roster-template-button" type="button">CSV 양식 받기</button>
+    </div>
+    <p class="roster-help">CSV UTF-8 또는 Excel(.xlsx)의 첫 시트를 읽습니다. 학번·이름은 필수, 반은 선택 항목입니다. 학번 앞자리 0을 보존하려면 Excel에서 학번 열을 텍스트로 지정하세요. 기존 학번은 갱신하고 빠진 명단은 삭제하지 않습니다. 명단을 올린 뒤 학생마다 PIN을 발급해 전달하세요.</p>
+    <p class="roster-import-status" id="roster-import-status" role="status"></p>
+    <p class="teacher-status" id="teacher-status" role="status">학생 정보를 불러오는 중...</p>
+    <div class="teacher-table-wrap">
+      <table class="teacher-table">
+        <thead><tr><th>반</th><th>학번</th><th>이름</th><th>계정</th><th>PIN</th><th>해결</th><th>제출</th><th>관리</th></tr></thead>
+        <tbody id="teacher-rows"></tbody>
+      </table>
+    </div>
+  </dialog>
+  <dialog class="pin-dialog" id="pin-dialog" aria-labelledby="pin-dialog-title">
+    <button class="dialog-close" id="pin-dialog-close" type="button" aria-label="닫기">×</button>
+    <p class="eyebrow">STUDENT PIN</p>
+    <h2 id="pin-dialog-title">학생 PIN 발급</h2>
+    <p class="pin-dialog-description">발급할 때마다 이전 PIN은 사용할 수 없게 됩니다. 새 PIN은 이번에만 표시되니 학생에게 안전하게 전달해 주세요.</p>
+    <output class="issued-pin" id="issued-pin"></output>
+  </dialog>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

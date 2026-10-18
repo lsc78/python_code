@@ -1,0 +1,103 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - link "코드마루 홈" [ref=e4] [cursor=pointer]:
+      - /url: "#"
+      - generic [ref=e5]: </>
+      - generic [ref=e6]: 코드마루
+    - generic [ref=e7]:
+      - button "로그인" [ref=e8] [cursor=pointer]
+      - generic [ref=e11]: Python 준비 중
+  - main [ref=e12]:
+    - complementary "문제 목록" [ref=e13]:
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - paragraph [ref=e16]: TODAY'S PRACTICE
+          - heading "문제 풀기" [level=1] [ref=e17]
+        - generic [ref=e18]: 10 / 10
+      - generic "문제 풀이 진행률" [ref=e19]
+      - generic [ref=e21]:
+        - 'button "문제 01: 합계 구하기, 해결함" [ref=e22] [cursor=pointer]':
+          - generic [ref=e23]: "01"
+        - 'button "문제 02: 짝수는 몇 개일까?, 해결함" [ref=e24] [cursor=pointer]':
+          - generic [ref=e25]: "02"
+        - 'button "문제 03: 구구단 출력하기, 해결함" [ref=e26] [cursor=pointer]':
+          - generic [ref=e27]: "03"
+        - 'button "문제 04: 가장 큰 수 찾기, 해결함" [ref=e28] [cursor=pointer]':
+          - generic [ref=e29]: "04"
+        - 'button "문제 05: 거꾸로 읽어도 같은 단어, 해결함" [ref=e30] [cursor=pointer]':
+          - generic [ref=e31]: "05"
+        - 'button "문제 06: 별 계단 만들기, 해결함" [ref=e32] [cursor=pointer]':
+          - generic [ref=e33]: "06"
+        - 'button "문제 07: 평균과 등급, 해결함" [ref=e34] [cursor=pointer]':
+          - generic [ref=e35]: "07"
+        - 'button "문제 08: 모음 세기, 해결함" [ref=e36] [cursor=pointer]':
+          - generic [ref=e37]: "08"
+        - 'button "문제 09: 동전으로 거스름돈, 해결함" [ref=e38] [cursor=pointer]':
+          - generic [ref=e39]: "09"
+        - 'button "문제 10: 숫자 뒤집기, 해결함" [ref=e40] [cursor=pointer]':
+          - generic [ref=e41]: "10"
+    - generic [ref=e42]:
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - generic [ref=e45]: 입출력
+          - generic [ref=e46]: ·
+          - generic [ref=e47]: 입문
+        - generic [ref=e48]:
+          - generic [ref=e49]:
+            - generic [ref=e50]: 문제 01
+            - heading "합계 구하기" [level=2] [ref=e51]
+          - generic [ref=e52]: ✓ 해결
+        - generic [ref=e53]: 숫자 N개가 주어집니다. 주어진 숫자들의 합을 구해 출력해 보세요.
+        - generic [ref=e54]:
+          - heading "입력" [level=3] [ref=e55]:
+            - generic [ref=e56]: ↓
+            - text: 입력
+          - paragraph [ref=e57]: 첫째 줄에 숫자의 개수 N이 주어집니다. 둘째 줄에 N개의 정수가 공백으로 구분되어 주어집니다.
+        - generic [ref=e58]:
+          - heading "출력" [level=3] [ref=e59]:
+            - generic [ref=e60]: ↑
+            - text: 출력
+          - paragraph [ref=e61]: N개의 정수의 합을 출력합니다.
+        - generic [ref=e62]:
+          - generic [ref=e63]:
+            - heading "예제" [level=3] [ref=e64]
+            - generic [ref=e65]: 직접 실행해 볼 수 있어요
+          - generic [ref=e66]:
+            - generic [ref=e67]:
+              - generic [ref=e68]: 입력
+              - generic [ref=e69]: 5 1 2 3 4 5
+            - generic [ref=e70]:
+              - generic [ref=e71]: 출력
+              - generic [ref=e72]: "15"
+        - generic [ref=e73]:
+          - generic [ref=e74]: ✦
+          - generic [ref=e75]: 둘째 줄은 split()과 map(int, ...)을 이용하면 편하게 숫자로 바꿀 수 있어요.
+      - generic [ref=e76]:
+        - button "← 이전 문제" [disabled] [ref=e77]
+        - generic [ref=e78]: 1 / 10
+        - button "다음 문제 →" [ref=e79] [cursor=pointer]
+    - region "코드 편집기" [ref=e80]:
+      - generic [ref=e81]:
+        - generic [ref=e82]:
+          - generic [ref=e83]: Py
+          - generic [ref=e84]:
+            - strong [ref=e85]: 코드 작성
+            - generic [ref=e86]: main.py
+        - generic [ref=e87]:
+          - button "모범 답안 입력" [ref=e88] [cursor=pointer]
+          - button "초기화" [ref=e89] [cursor=pointer]
+      - generic [ref=e90]:
+        - generic [ref=e91]: ● Python 3
+        - generic [ref=e92]: 들여쓰기 4칸
+      - generic [ref=e93]:
+        - generic [ref=e94]: 1 2 3
+        - textbox "파이썬 코드 입력" [ref=e95]: n = int(input()) numbers = list(map(int, input().split())) print(sum(numbers))
+      - generic [ref=e96]:
+        - generic [ref=e97]: Ctrl + Enter 로 제출
+        - generic [ref=e98]: 자동 저장됨
+      - button "Python 준비 중 Ctrl / ⌘ ↵" [disabled] [ref=e99]:
+        - generic [ref=e100]: ▶
+        - generic [ref=e101]: Python 준비 중
+        - generic [ref=e102]: Ctrl / ⌘ ↵
+  - contentinfo [ref=e103]:
+    - generic [ref=e104]: 작은 한 걸음이 멋진 코드를 만들어요.

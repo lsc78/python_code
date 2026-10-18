@@ -1,0 +1,4 @@
+[     103ms] [INFO] [preview-bridge] v1.1.0 @ https://3ye9bl2axwhsopuj.jitda.io/__preview-bridge.js:1
+[   12739ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://tivtybyhpwylhquufeiz.supabase.co/auth/v1/health:0
+[  236621ms] [INFO] [preview-bridge] v1.1.0 @ https://3ye9bl2axwhsopuj.jitda.io/__preview-bridge.js:1
+[  251011ms] [INFO] [preview-bridge] v1.1.0 @ https://3ye9bl2axwhsopuj.jitda.io/__preview-bridge.js:1
