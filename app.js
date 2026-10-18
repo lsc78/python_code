@@ -137,6 +137,7 @@ let runtimeReady = false;
 let isSubmitting = false;
 let timeoutId;
 const storagePrefix = 'codemaru-python-';
+const interpretationCache = new Map();
 let activeUser = null;
 let activeProfile = null;
 let authSyncId = 0;
@@ -285,7 +286,10 @@ function showResults(results, runtimeError) {
   resultPanel.hidden = false;
   if (runtimeError) {
     resultPanel.className = 'result-panel result-failed';
-    resultPanel.innerHTML = `<div class="result-heading"><div class="result-title"><span aria-hidden="true">!</span> 실행 오류</div><span class="result-summary">다시 확인해 주세요</span></div><pre class="error-output"></pre>`;
+    resultPanel.dataset.tutorError = runtimeError;
+    resultPanel.dataset.passed = '0';
+    resultPanel.dataset.total = '0';
+    resultPanel.innerHTML = `<div class="result-heading"><div class="result-title"><span aria-hidden="true">!</span> 실행 오류</div><span class="result-summary">다시 확인해 주세요</span></div><pre class="error-output"></pre><div class="tutor-actions"><button class="tutor-action-button" type="button" data-tutor-intent="error">오류 설명 받기</button><span>누르면 오류 내용만 튜터에 전달돼요.</span></div>${tutorPanelMarkup()}`;
     resultPanel.querySelector('.error-output').textContent = runtimeError;
     return;
   }
@@ -305,15 +309,94 @@ function showResults(results, runtimeError) {
   }
   const passed = results.filter(result => result.pass).length;
   const accepted = passed === results.length;
-  resultPanel.className = `result-panel ${accepted ? 'result-accepted' : 'result-failed'}`;
-  resultPanel.innerHTML = `<div class="result-heading"><div class="result-title"><span aria-hidden="true">${accepted ? '✓' : '×'}</span> ${accepted ? '정답입니다!' : '아직 정답이 아니에요'}</div><span class="result-summary">${passed} / ${results.length} 테스트 통과</span></div><p class="result-detail">${accepted ? '모든 테스트케이스를 통과했어요. 다음 문제도 풀어볼까요?' : '출력 형식과 문제 조건을 다시 확인하고 고쳐보세요.'}</p><div class="test-results">${results.map((result, index) => `<span class="test-chip ${result.pass ? 'pass' : 'fail'}">테스트 ${index + 1}<b>${result.pass ? '통과' : result.error ? '오류' : '실패'}</b></span>`).join('')}</div>${results.some(result => result.error) ? '<pre class="error-output"></pre>' : ''}`;
   const errorResult = results.find(result => result.error);
+  const tutorIntent = accepted ? '' : errorResult ? 'error' : 'hint';
+  resultPanel.dataset.tutorError = errorResult?.error ?? '';
+  resultPanel.dataset.passed = String(passed);
+  resultPanel.dataset.total = String(results.length);
+  resultPanel.className = `result-panel ${accepted ? 'result-accepted' : 'result-failed'}`;
+  const tutorActions = tutorIntent
+    ? `<div class="tutor-actions"><button class="tutor-action-button" type="button" data-tutor-intent="${tutorIntent}">${tutorIntent === 'error' ? '오류 설명 받기' : '풀이 힌트 받기'}</button><span>${tutorIntent === 'error' ? '오류 원인만 설명하고 코드는 작성하지 않아요.' : '힌트는 한 번에 한 단계씩 제공돼요.'}</span></div>${tutorPanelMarkup()}`
+    : '';
+  resultPanel.innerHTML = `<div class="result-heading"><div class="result-title"><span aria-hidden="true">${accepted ? '✓' : '×'}</span> ${accepted ? '정답입니다!' : '아직 정답이 아니에요'}</div><span class="result-summary">${passed} / ${results.length} 테스트 통과</span></div><p class="result-detail">${accepted ? '모든 테스트케이스를 통과했어요. 다음 문제도 풀어볼까요?' : '출력 형식과 문제 조건을 다시 확인하고 고쳐보세요.'}</p><div class="test-results">${results.map((result, index) => `<span class="test-chip ${result.pass ? 'pass' : 'fail'}">테스트 ${index + 1}<b>${result.pass ? '통과' : result.error ? '오류' : '실패'}</b></span>`).join('')}</div>${errorResult ? '<pre class="error-output"></pre>' : ''}${tutorActions}`;
   if (errorResult) resultPanel.querySelector('.error-output').textContent = errorResult.error;
   if (accepted) {
     saveSolved(activeProblem);
     document.querySelector('#solved-stamp').hidden = false;
     renderProblemList();
     updateProblemNavigation();
+  }
+}
+
+function tutorPanelMarkup() {
+  return `<section class="attempt-tutor-panel" data-tutor-panel hidden><p class="tutor-status" data-tutor-status role="status"></p><div class="tutor-output"><div><span>파악한 점</span><p data-tutor-summary></p></div><div><span>다음 한 걸음</span><p data-tutor-next></p></div><div><span>생각해 볼 질문</span><p data-tutor-question></p></div></div></section>`;
+}
+
+function fillTutorPanel(panel, answer) {
+  panel.querySelector('[data-tutor-summary]').textContent = answer.summary;
+  panel.querySelector('[data-tutor-next]').textContent = answer.nextStep;
+  const question = panel.querySelector('[data-tutor-question]');
+  if (question.tagName === 'OL') {
+    const item = document.createElement('li');
+    item.textContent = answer.question;
+    question.replaceChildren(item);
+  } else {
+    question.textContent = answer.question;
+  }
+}
+
+async function requestTutor(kind, panel, options = {}) {
+  if (!panel) return null;
+  panel.hidden = false;
+  const status = panel.querySelector('[data-tutor-status], #interpret-status');
+  status.classList.remove('error');
+  status.textContent = 'AI 튜터가 생각 중이에요...';
+  const sessionResult = supabase ? await supabase.auth.getSession() : null;
+  const accessToken = sessionResult?.data?.session?.access_token;
+  if (!activeUser || !accessToken) {
+    status.textContent = '학번 PIN 또는 교사 계정으로 로그인한 뒤 이용해 주세요.';
+    status.classList.add('error');
+    return null;
+  }
+  const problemId = activeProblem + 1;
+  try {
+    const response = await fetch('/api/tutor', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${accessToken}`
+      },
+      body: JSON.stringify({
+        intent: kind,
+        problemId,
+        code: kind === 'interpret' ? '' : editor.value.slice(0, 5000),
+        passedTests: Number(resultPanel.dataset.passed || 0),
+        totalTests: Number(resultPanel.dataset.total || 0),
+        errorMessage: options.errorMessage ?? resultPanel.dataset.tutorError ?? ''
+      })
+    });
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(payload.error || '튜터 요청을 처리하지 못했어요.');
+    fillTutorPanel(panel, payload.answer);
+    status.textContent = kind === 'hint' && Number.isInteger(payload.remainingHints)
+      ? `힌트를 받았어요 · 이 문제에 남은 단계별 힌트 ${payload.remainingHints}회`
+      : '현재 문제에만 한정해 설명했어요. 정답 코드는 제공하지 않아요.';
+    return payload.answer;
+  } catch (error) {
+    status.textContent = error.message || 'AI 튜터에 연결하지 못했어요. 잠시 후 다시 시도해 주세요.';
+    status.classList.add('error');
+    if (kind === 'interpret') {
+      const fallback = problems[activeProblem].interpretation;
+      document.querySelector('#interpret-given').textContent = fallback.given;
+      document.querySelector('#interpret-goal').textContent = fallback.goal;
+      document.querySelector('#interpret-steps').replaceChildren(...fallback.steps.map(step => {
+        const item = document.createElement('li');
+        item.textContent = step;
+        return item;
+      }));
+      status.textContent += ' 미리 준비된 문제 해석을 대신 보여드립니다.';
+    }
+    return null;
   }
 }
 
@@ -367,6 +450,25 @@ document.querySelector('#interpret-button').addEventListener('click', event => {
   const expanded = panel.hidden;
   panel.hidden = !expanded;
   event.currentTarget.setAttribute('aria-expanded', String(expanded));
+  if (!expanded) return;
+  const cached = interpretationCache.get(activeProblem);
+  if (cached) {
+    fillTutorPanel(panel, cached);
+    document.querySelector('#interpret-status').textContent = '이 문제의 AI 해석을 불러왔어요.';
+  } else {
+    void requestTutor('interpret', panel).then(answer => {
+      if (answer) interpretationCache.set(activeProblem, answer);
+    });
+  }
+});
+resultPanel.addEventListener('click', event => {
+  const button = event.target.closest('[data-tutor-intent]');
+  if (!button) return;
+  button.disabled = true;
+  const panel = resultPanel.querySelector('[data-tutor-panel]');
+  void requestTutor(button.dataset.tutorIntent, panel).finally(() => {
+    button.disabled = false;
+  });
 });
 document.querySelector('#previous-button').addEventListener('click', () => selectProblem(activeProblem - 1));
 document.querySelector('#next-button').addEventListener('click', () => selectProblem(activeProblem + 1));

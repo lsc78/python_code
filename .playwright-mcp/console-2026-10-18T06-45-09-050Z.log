@@ -1,2 +1,17 @@
 [     124ms] [INFO] [preview-bridge] v1.1.0 @ https://3ye9bl2axwhsopuj.jitda.io/__preview-bridge.js:1
 [ 1000542ms] [INFO] [preview-bridge] v1.1.0 @ https://3ye9bl2axwhsopuj.jitda.io/__preview-bridge.js:1
+[ 2498331ms] [INFO] [preview-bridge] v1.1.0 @ https://3ye9bl2axwhsopuj.jitda.io/__preview-bridge.js:1
+[ 2530441ms] [INFO] [preview-bridge] v1.1.0 @ https://3ye9bl2axwhsopuj.jitda.io/__preview-bridge.js:1
+[ 2551685ms] [INFO] [preview-bridge] v1.1.0 @ https://3ye9bl2axwhsopuj.jitda.io/__preview-bridge.js:1
+[ 2584027ms] [INFO] [preview-bridge] v1.1.0 @ https://3ye9bl2axwhsopuj.jitda.io/__preview-bridge.js:1
+[ 2592245ms] [INFO] [preview-bridge] v1.1.0 @ https://3ye9bl2axwhsopuj.jitda.io/__preview-bridge.js:1
+[ 2619036ms] [INFO] [preview-bridge] v1.1.0 @ https://3ye9bl2axwhsopuj.jitda.io/__preview-bridge.js:1
+[ 2769722ms] [INFO] [preview-bridge] v1.1.0 @ https://3ye9bl2axwhsopuj.jitda.io/__preview-bridge.js:1
+[ 2846030ms] [INFO] [preview-bridge] v1.1.0 @ https://3ye9bl2axwhsopuj.jitda.io/__preview-bridge.js:1
+[ 3017994ms] [LOG] [vite] server connection lost. Polling for restart... @ https://3ye9bl2axwhsopuj.jitda.io/__preview-bridge.js:1
+[ 3018059ms] [ERROR] WebSocket connection to 'wss://3ye9bl2axwhsopuj.jitda.io/' failed: Error during WebSocket handshake: Unexpected response code: 503 @ https://3ye9bl2axwhsopuj.jitda.io/@vite/client:1034
+[ 3019429ms] [INFO] [preview-bridge] v1.1.0 @ https://3ye9bl2axwhsopuj.jitda.io/__preview-bridge.js:1
+[ 3024279ms] [LOG] [vite] server connection lost. Polling for restart... @ https://3ye9bl2axwhsopuj.jitda.io/__preview-bridge.js:1
+[ 3024291ms] [ERROR] WebSocket connection to 'wss://3ye9bl2axwhsopuj.jitda.io/' failed: Error during WebSocket handshake: Unexpected response code: 503 @ https://3ye9bl2axwhsopuj.jitda.io/@vite/client:1034
+[ 3025303ms] [ERROR] WebSocket connection to 'wss://3ye9bl2axwhsopuj.jitda.io/' failed: Error during WebSocket handshake: Unexpected response code: 503 @ https://3ye9bl2axwhsopuj.jitda.io/@vite/client:1034
+[ 3026521ms] [INFO] [preview-bridge] v1.1.0 @ https://3ye9bl2axwhsopuj.jitda.io/__preview-bridge.js:1

@@ -86,6 +86,20 @@ button:focus-visible, textarea:focus-visible { outline: 3px solid #9db5ff; outli
 .interpret-actions > span { color: #99a2ae; font-size: 10px; }
 .interpret-panel { margin: -8px 0 21px; padding: 13px 14px; background: #f7f8fd; border: 1px solid #e9ecf8; border-radius: 8px; }
 .interpret-panel[hidden] { display: none; }
+.tutor-status { margin: 0 0 8px; color: #788391; font-size: 10px; line-height: 1.55; }
+.tutor-status.error { color: #b64c4c; }
+.tutor-actions { margin-top: 12px; padding-top: 10px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; border-top: 1px solid #edf0f3; }
+.tutor-actions > span { color: #929ba7; font-size: 10px; }
+.tutor-action-button { min-height: 34px; padding: 0 10px; color: #345fc8; background: #f1f5ff; border: 1px solid #e1e9ff; border-radius: 6px; cursor: pointer; font-size: 10px; font-weight: 700; }
+.tutor-action-button:hover:not(:disabled) { background: #e8efff; }
+.tutor-action-button:disabled { opacity: .6; cursor: wait; }
+.attempt-tutor-panel { margin-top: 10px; padding: 10px 11px; background: #f7f8fd; border: 1px solid #e9ecf8; border-radius: 7px; }
+.attempt-tutor-panel[hidden] { display: none; }
+.tutor-output { display: grid; gap: 8px; }
+.tutor-output > div { padding-top: 7px; border-top: 1px solid #e9ecf3; }
+.tutor-output > div:first-child { padding-top: 0; border-top: 0; }
+.tutor-output span { color: #55698f; font-size: 10px; font-weight: 700; }
+.tutor-output p { margin: 3px 0 0; color: #626e80; font-size: 11px; line-height: 1.65; white-space: pre-wrap; }
 .interpret-row { display: grid; grid-template-columns: 78px minmax(0, 1fr); gap: 9px; padding: 6px 0; }
 .interpret-row + .interpret-row { border-top: 1px solid #e9ecf3; }
 .interpret-row > span { color: #55698f; font-size: 10px; font-weight: 700; }

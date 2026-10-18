@@ -55,12 +55,13 @@
             <button class="interpret-button" id="interpret-button" type="button" aria-expanded="false" aria-controls="interpret-panel">
               <span class="interpret-mark" aria-hidden="true">?</span> 문제 해석 도우미
             </button>
-            <span>정답 코드 없이 조건을 정리해요</span>
+            <span>정답 코드는 주지 않아요. 힌트 요청 시 코드만 전송하고 이름·학번은 보내지 않아요.</span>
           </div>
           <section class="interpret-panel" id="interpret-panel" aria-label="문제 해석" hidden>
-            <div class="interpret-row"><span>주어진 정보</span><p id="interpret-given"></p></div>
-            <div class="interpret-row"><span>해야 할 일</span><p id="interpret-goal"></p></div>
-            <div class="interpret-row"><span>생각 순서</span><ol id="interpret-steps"></ol></div>
+            <p class="tutor-status" id="interpret-status" role="status"></p>
+            <div class="interpret-row"><span>문제 이해</span><p id="interpret-given" data-tutor-summary></p></div>
+            <div class="interpret-row"><span>다음 단계</span><p id="interpret-goal" data-tutor-next></p></div>
+            <div class="interpret-row"><span>스스로 생각해 보기</span><ol id="interpret-steps" data-tutor-question></ol></div>
           </section>
           <div class="section-block">
             <h3><span class="section-icon input-icon" aria-hidden="true">↓</span> 입력</h3>
